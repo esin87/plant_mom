@@ -9,7 +9,7 @@
 		<h1>Plant Mom</h1>
 		<nav>
 			<a href="/">Plants</a>
-			<a href="/">New Plant</a>
+			<a href="{% url 'plant_create' %}">New Plant</a>
 		</nav>
 		{% block content %} {% endblock %}
 	</body>
