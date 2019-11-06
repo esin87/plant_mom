@@ -23,3 +23,15 @@ def plant_create(request):
     else:
         form = PlantForm()
     return render(request, 'plant_mom/plants_create.html', {'form': form})
+
+
+def plant_edit(request, pk):
+    plant = Plant.objects.get(pk=pk)
+    if request.method == "POST":
+        form = PlantForm(request.POST, instance=plant)
+        if form.is_valid():
+            plant = form.save()
+            return redirect('plant_detail', pk=plant.pk)
+    else:
+        form = PlantForm(instance=plant)
+    return render(request, 'plant_mom/plants_create.html', {'form': form})
