@@ -1,0 +1,9 @@
+{% extends 'plant_mom/base.html' %} {% block content %}
+<ul>
+	{% for plant in plants %}
+	<li>
+		<a href="{% url 'plant_detail' pk=plant.pk %}">{{ plant.name }}</a>
+	</li>
+	{% endfor %}
+</ul>
+{% endblock %}

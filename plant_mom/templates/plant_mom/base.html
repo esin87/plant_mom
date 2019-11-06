@@ -1,0 +1,16 @@
+{% load staticfiles %}
+
+<html>
+	<head>
+		<title>Plant Mom</title>
+		<link rel="stylesheet" href="{% static 'css/plant_mom.css' %}" />
+	</head>
+	<body>
+		<h1>Plant Mom</h1>
+		<nav>
+			<a href="/">Plants</a>
+			<a href="/">New Plant</a>
+		</nav>
+		{% block content %} {% endblock %}
+	</body>
+</html>
