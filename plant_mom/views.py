@@ -35,3 +35,8 @@ def plant_edit(request, pk):
     else:
         form = PlantForm(instance=plant)
     return render(request, 'plant_mom/plants_create.html', {'form': form})
+
+
+def plant_delete(request, pk):
+    Plant.objects.get(id=pk).delete()
+    return redirect('plants_list')

@@ -9,4 +9,9 @@
   <a href="{{ plant.link }}" target="_blank">here</a>.
 </p>
 </ul>
+
+<form action="/plants/{{ plant.id }}/delete" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Delete {{ plant.name }}" />
+</form>
 {% endblock %}
