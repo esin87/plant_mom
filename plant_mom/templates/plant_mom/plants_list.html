@@ -1,11 +1,33 @@
 {% extends 'plant_mom/base.html' %} {% block content %}
-<div class="container">
-	<div class="row">
+<div class="row">
+	<div class="d-flex p-1 flex-row flex-wrap" style="height: 500px">
 		{% for plant in plants %}
-		<div class="col-md-4">
-			<a href="{% url 'plant_detail' pk=plant.pk %}">
-				{{ plant.name }}
-			</a>
+		<div
+			class="card p-1 flex-fill flex-shrink-1"
+			style="flex: 0 1 50%; margin: 20px"
+		>
+			<div class="view overlay">
+				<img
+					src="{{ plant.photo_url }}"
+					class="card-img-top img-fluid"
+					alt="Thumbnail of {{ plant.name }}"
+					style="max-height: 400px; display:block; max-width:100%; width: auto; height: auto; margin: 0 auto"
+				/>
+				<a href="{% url 'plant_detail' pk=plant.pk %}">
+					<div class="mask rgba-white-slight"></div>
+				</a>
+			</div>
+			<div class="card-body">
+				<h4 class="card-title">
+					{{ plant.name }}
+				</h4>
+				<p class="card-text">{{ plant.description }}</p>
+				<a
+					href="{% url 'plant_detail' pk=plant.pk %}"
+					class="btn btn-green"
+					>See More</a
+				>
+			</div>
 		</div>
 		{% endfor %}
 	</div>

@@ -37,26 +37,32 @@
 					aria-expanded="false"
 					aria-label="Toggle navigation"
 				>
-				<span class="navbar-toggler-icon"></span>
+					<span class="navbar-toggler-icon"></span>
 				</button>
-				<div
-					class="collapse navbar-collapse"
-					id="basicExampleNav"
-				>          
-				<ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Plants
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'plant_create' %}">New Plant</a>
-			</div>
+				<div class="collapse navbar-collapse" id="basicExampleNav">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="/"
+								>Plants
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'plant_create' %}"
+								>New Plant</a
+							>
+						</li>
+					</ul>
+				</div>
 				<div class="row justify-content-center">
 					<div class="navbar-nav mr-auto">
-						{% if user.is_authenticated %} Welcome,
-						{{ user.username }}
-						<a class="nav-link" href="{% url 'logout' %}">Log out</a>
+						<a class="nav-link" href="/"
+							>{% if user.is_authenticated %} Welcome,
+							{{ user.username }}</a
+						>
+						<a class="nav-link" href="{% url 'logout' %}"
+							>Log out</a
+						>
 						{% else %}
 						<a class="nav-link" href="{% url 'login' %}">Login</a>
 						<a class="nav-link" href="{% url 'signup' %}">Signup</a>
@@ -65,8 +71,8 @@
 				</div>
 			</nav>
 		</header>
-		<main class="mt-5">		
-				{% block content %} {% endblock %}
+		<main class="mt-5 container">
+			{% block content %} {% endblock %}
 		</main>
 		<!-- JQuery -->
 		<script
