@@ -1,17 +1,27 @@
 {% extends 'plant_mom/base.html' %} {% block content %}
+<div class="row">
+  <div class="col-md-7 mb-4">
+    <div class="view overlay z-depth-1-half">
+      <img src="{{ plant.photo_url }}" alt="{{ plant.name }}" class="card-img-top"  />
+      <div class="mask rgba-white-light"></div>
+    </div>
+  </div>
 
-<h2>{{ plant.name }} <a href="{% url 'plant_edit' pk=plant.pk %}">(edit)</a></h2>
-<h4>{{ plant.description }}</h4>
+  <div class="col-md-5 mb-4">
+    <h2>{{ plant.name }} <a href="{% url 'plant_edit' pk=plant.pk %}">(edit)</a></h2>
+    <hr>
+    <h4>{{ plant.description }}</h4>
 
-<img src="{{ plant.photo_url }}" alt="" class="plant-photo" />
-<p>{{ plant.care_tips }}</p>
-<p>Read more 
-  <a href="{{ plant.link }}" target="_blank">here</a>.
-</p>
-</ul>
 
-<form action="/plants/{{ plant.id }}/delete" method="POST">
-  {% csrf_token %}
-  <input type="submit" value="Delete {{ plant.name }}" />
-</form>
+    <p>{{ plant.care_tips }}</p>
+    <p>Read more 
+      <a href="{{ plant.link }}" target="_blank">here</a>.
+    </p>
+    </ul>
+
+    <form action="/plants/{{ plant.id }}/delete" method="POST">
+      {% csrf_token %}
+      <input class="btn btn-green" type="submit" value="Delete {{ plant.name }}" />
+    </form>
 {% endblock %}
+</div>
