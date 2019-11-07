@@ -24,60 +24,79 @@
 	</head>
 
 	<body>
-		<header class="full-page">
-			<div class="header z-depth-1"></div>
+		<!--Main Navigation-->
+		<header>
+			<!--Navbar-->
 			<nav class="navbar navbar-expand-lg navbar-dark teal darken-4">
-				<a href="/"><h1 class="navbar-brand">Plant Mom</h1></a>
-				<button
-					class="navbar-toggler"
-					type="button"
-					data-toggle="collapse"
-					data-target="#basicExampleNav"
-					aria-controls="basicExampleNav"
-					aria-expanded="false"
-					aria-label="Toggle navigation"
-				>
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="basicExampleNav">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active">
-							<a class="nav-link" href="/"
-								>Plants
-								<span class="sr-only">(current)</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{% url 'plant_create' %}"
-								>New Plant</a
-							>
-						</li>
-					</ul>
-				</div>
-				<div class="row justify-content-center">
-					<div class="navbar-nav mr-auto">
-						<a class="nav-link" href="/"
-							>{% if user.is_authenticated %} Welcome,
-							{{ user.username }}</a
-						>
-						<a class="nav-link" href="{% url 'logout' %}"
-							>Log out</a
-						>
-						{% else %}
-						<a class="nav-link" href="{% url 'login' %}">Login</a>
-						<a class="nav-link" href="{% url 'signup' %}">Signup</a>
-						{% endif %}
+				<!-- Additional container -->
+				<div class="container">
+					<!-- Navbar brand -->
+					<a href="/"><h1 class="navbar-brand">Plant Mom</h1></a>
+					<!-- Collapse button -->
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-toggle="collapse"
+						data-target="#basicExampleNav"
+						aria-controls="basicExampleNav"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<!-- Collapsible content -->
+					<div class="collapse navbar-collapse" id="basicExampleNav">
+						<!-- Links -->
+						<ul class="navbar-nav mr-auto">
+							<li class="nav-item active">
+								<a class="nav-link" href="/"
+									>Plants
+									<span class="sr-only">(current)</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a
+									class="nav-link"
+									href="{% url 'plant_create' %}"
+									>New Plant</a
+								>
+							</li>
+						</ul>
+						<div class="row justify-content-center">
+							<div class="navbar-nav mr-auto">
+								<a class="nav-link" href="/"
+									>{% if user.is_authenticated %} Welcome,
+									{{ user.username }}!</a
+								>
+								<a class="nav-link" href="{% url 'logout' %}"
+									>Log Out</a
+								>
+								{% else %}
+								<a class="nav-link" href="{% url 'login' %}"
+									>Log In</a
+								>
+								<a class="nav-link" href="{% url 'signup' %}"
+									>Sign Up</a
+								>
+								{% endif %}
+							</div>
+						</div>
 					</div>
+					<!-- Collapsible content -->
 				</div>
+				<!-- Additional container -->
 			</nav>
+			<!--/.Navbar-->
 		</header>
+		<!--Main Navigation-->
+
 		<main class="mt-5 container">
 			{% block content %} {% endblock %}
 		</main>
 		<!-- JQuery -->
 		<script
 			type="text/javascript"
-			src="{ static 'js/jquery-3.4.1.min.js' %}"
+			src="{% static 'js/jquery-3.4.1.min.js' %}"
 		></script>
 		<!-- Bootstrap tooltips -->
 		<script

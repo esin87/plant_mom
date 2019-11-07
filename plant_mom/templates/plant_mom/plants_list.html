@@ -1,6 +1,6 @@
 {% extends 'plant_mom/base.html' %} {% block content %}
 <div class="row">
-	<div class="d-flex p-1 flex-row flex-wrap" style="height: 500px">
+	<div class="d-flex p-1 flex-row flex-wrap" style="min-height: auto">
 		{% for plant in plants %}
 		<div
 			class="card p-1 flex-fill flex-shrink-1"
@@ -11,7 +11,7 @@
 					src="{{ plant.photo_url }}"
 					class="card-img-top img-fluid"
 					alt="Thumbnail of {{ plant.name }}"
-					style="max-height: 400px; display:block; max-width:100%; width: auto; height: auto; margin: 0 auto"
+					style="max-height: 400px; display:block; max-width:100%; width: auto; height: auto; margin: 0 auto; object-fit: contain"
 				/>
 				<a href="{% url 'plant_detail' pk=plant.pk %}">
 					<div class="mask rgba-white-slight"></div>
