@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'plant_mom',
     'social_django',
     'crispy_forms',
+    'bootstrap4',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

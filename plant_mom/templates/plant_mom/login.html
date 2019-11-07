@@ -1,6 +1,7 @@
-{% extends 'plant_mom/base.html' %} {% block content %} {% if form.errors %}
+{% extends 'plant_mom/base.html' %} {% load bootstrap4 %}
 
 <div class="container">
+	{% block content %} {% if form.errors %}
 	<p>Your username and password do not match. Please try again.</p>
 	{% endif %} {% if next %}
 	<p>Please login to see this page.</p>
@@ -12,7 +13,7 @@
 		class="text-center border border-light p-5"
 	>
 		<p class="h4 mb-4">Log In</p>
-		{% csrf_token %} {{ form.as_p }}
+		{% csrf_token %} {% bootstrap_form form %}
 
 		<input
 			type="submit"
@@ -43,5 +44,5 @@
 			<i class="fab fa-twitter light-green-text"></i>
 		</a>
 	</form>
+	{% endblock %}
 </div>
-{% endblock %}
