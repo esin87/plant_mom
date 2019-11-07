@@ -1,19 +1,47 @@
 {% extends 'plant_mom/base.html' %} {% block content %} {% if form.errors %}
-<p>Your username and password do not match. Please try again.</p>
-{% endif %} {% if next %}
-<p>Please login to see this page.</p>
-{% endif %}
 
-<form method="post" action="{% url 'login' %}">
-	{% csrf_token %} {{ form.as_p }}
+<div class="container">
+	<p>Your username and password do not match. Please try again.</p>
+	{% endif %} {% if next %}
+	<p>Please login to see this page.</p>
+	{% endif %}
 
-	<input type="submit" value="login" />
-	<input type="hidden" name="next" value="{{ next }}" />
-</form>
-<br />
-<p><strong>-- OR --</strong></p>
-<a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br />
-<a href="{% url 'social:begin' 'twitter' %}">Login with Twitter</a><br />
-<a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+	<form
+		method="post"
+		action="{% url 'login' %}"
+		class="text-center border border-light p-5"
+	>
+		<p class="h4 mb-4">Log In</p>
+		{% csrf_token %} {{ form.as_p }}
 
+		<input
+			type="submit"
+			value="login"
+			class="btn btn-green"
+			style="margin-bottom:20px;"
+		/>
+
+		<input type="hidden" name="next" value="{{ next }}" />
+
+		<p>
+			Not a member?
+			<a href="/signup">Register!</a>
+		</p>
+
+		<p>Or sign in with:</p>
+		<a
+			href="{% url 'social:begin' 'facebook' %}"
+			class="mx-2"
+			role="button"
+		>
+			<i class="fab fa-facebook-f light-green-text"></i>
+		</a>
+		<a href="{% url 'social:begin' 'github' %}" class="mx-2" role="button">
+			<i class="fab fa-github light-green-text"></i>
+		</a>
+		<a href="{% url 'social:begin' 'twitter' %}" class="mx-2" role="button">
+			<i class="fab fa-twitter light-green-text"></i>
+		</a>
+	</form>
+</div>
 {% endblock %}

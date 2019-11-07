@@ -1,10 +1,25 @@
 {% extends "plant_mom/base.html" %} {% block content %}
 
-<form method="post" action="{% url 'signup' %}">
+<form
+	method="post"
+	action="{% url 'signup' %}"
+	class="text-center border border-light p-5"
+>
+	<p class="h4 mb-4">Sign Up</p>
 	{% csrf_token %} {{ form.as_p }}
 
-	<input type="submit" value="Sign Up" />
+	<input type="submit" value="Sign Up" class="btn btn-green" />
 	<input type="hidden" name="next" value="{{ next }}" />
+	<p>Or sign in with:</p>
+	<a href="{% url 'social:begin' 'facebook' %}" class="mx-2" role="button">
+		<i class="fab fa-facebook-f light-green-text"></i>
+	</a>
+	<a href="{% url 'social:begin' 'github' %}" class="mx-2" role="button">
+		<i class="fab fa-github light-green-text"></i>
+	</a>
+	<a href="{% url 'social:begin' 'twitter' %}" class="mx-2" role="button">
+		<i class="fab fa-twitter light-green-text"></i>
+	</a>
 </form>
 
 {% endblock %}

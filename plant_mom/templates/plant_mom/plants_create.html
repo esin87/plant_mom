@@ -1,7 +1,8 @@
 {% extends 'plant_mom/base.html' %} {% block content %}
-<h3>New Plant</h3>
-<form method="POST" class="artist-form">
-	{% csrf_token %} {{ form.as_p }}
-	<button type="submit" class="save btn btn-default">Save</button>
+<h3 class="h4 mb-4">New Plant</h3>
+<form method="POST" class="text-center border border-light p-5" novalidate>
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit" class="btn btn-green">Save</button>
 </form>
 {% endblock %}
